@@ -47,7 +47,7 @@ public class MainPageTest {
         // Find article: Sauce Labs Bike Light
         // Equals article
         Map<String, String> product = findArticleAndGoToPage("Sauce Labs Bike Light");
-        // Add to bascket
+        // Add to basket
         findArticleBasket(product);
         // Testig basket counter
         // Go to basket
