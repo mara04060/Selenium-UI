@@ -59,7 +59,6 @@ public class MainPageTest {
 
     private void auth(){
         driver.get(baseUrl);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.findElement(By.id("user-name")).sendKeys(username);
         driver.findElement(By.id("password")).sendKeys(password);
         driver.findElement(By.id("login-button")).click();
@@ -67,7 +66,6 @@ public class MainPageTest {
     private void filter() {
         Select sortSelect = new Select(driver.findElement(By.className("product_sort_container")));
         sortSelect.selectByValue("hilo");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
     }
 
     private Map<String, String> findArticleAndGoToPage(String searchText){
