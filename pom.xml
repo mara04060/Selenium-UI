@@ -61,12 +61,6 @@
             <version>2.13.3</version>
         </dependency>
 
-        <!-- SLF4J API -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>1.7.32</version>  <!-- Замените на последнюю версию -->
-        </dependency>
 
         <!-- Logback (реализация для SLF4J) -->
         <dependency>

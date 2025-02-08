@@ -37,8 +37,8 @@ public class MainPageTest {
 
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");   // Headless mode
-        options.addArguments("--disable-gpu"); // Disable GPU --speedWork
+//        options.addArguments("--headless");   // Headless mode
+//        options.addArguments("--disable-gpu"); // Disable GPU --speedWork
         options.addArguments("--window-size=1920x1080"); // Set windows (default= 800x600)
 
         WebDriverManager.chromedriver().setup();
@@ -47,15 +47,7 @@ public class MainPageTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
-    @DataProvider()
-    public static Object[][] positive() {
-        return new Object[][]{
-                //sortProduct, NameArticle for search,
-                {"hilo", "Sauce Labs Bike Light"},
-                {"za", "Test.allTheThings() T-Shirt (Red)"}
-        };
-    }
-    @Test (dataProvider = "positive")
+    @Test (dataProviderClass = MainPageDataProvider.class, dataProvider = "positive", invocationCount = 10)
     public void addToBasketProduct(String sortProducts, String forSearchArticleName) {
         // Auth
         driver.get(baseUrl);
