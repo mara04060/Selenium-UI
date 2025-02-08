@@ -1,5 +1,6 @@
 package com.task1.selenium.pages;
 
+import com.task1.selenium.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,15 +10,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Map;
 
-public class MainPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class MainPage extends BaseTest {
     private By productSortContainer = By.className("product_sort_container");
     private By slotId = By.id("select-options");
 
-    public MainPage(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
+    public MainPage() {
+            super();
     }
 
     public void sortProductsBy(String sortValue) {

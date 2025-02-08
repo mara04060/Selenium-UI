@@ -1,24 +1,19 @@
 package com.task1.selenium.pages;
 
+import com.task1.selenium.BaseTest;
+import com.task1.selenium.Descriptions;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class CartPage {
-    private WebDriver driver;
-    private WebDriverWait wait;
+public class CartPage extends BaseTest {
     private By cartItemLabel = By.className("cart_item_label");
     private By cartItemName = By.className("inventory_item_name");
     private By cartItemPrice = By.className("inventory_item_price");
     private By cartCounter = By.className("shopping_cart_badge");
 
-    public CartPage(WebDriver driver, WebDriverWait wait) {
-        this.driver = driver;
-        this.wait = wait;
+    public CartPage() {
+       super();
     }
 
     public void verifyCartItem(String expectedName, String expectedPrice) {
@@ -28,13 +23,13 @@ public class CartPage {
         String cartProductName = elementName.getText();
         String cartProductPrice = filterElement.getText();
 
-        assert cartProductName.equals(expectedName) : "Назви товару в корзині не збігаються.";
-        assert cartProductPrice.equals(expectedPrice) : "Ціни товару в корзині не збігаються.";
+        assert cartProductName.equals(expectedName) : Descriptions.CART_PRODUCT_NAME_TEXT.getText();
+        assert cartProductPrice.equals(expectedPrice) : Descriptions.CART_PRODUCT_PRICE_TEXT.getText();
     }
 
     public void verifyCartCounter(int expectedCount) {
         WebElement cartCountElement = wait.until(ExpectedConditions.presenceOfElementLocated(cartCounter));
         String cartCount = cartCountElement.getText();
-        assert cartCount.equals(String.valueOf(expectedCount)) : "Товар не додано до корзини.";
+        assert cartCount.equals(String.valueOf(expectedCount)) : Descriptions.CART_PRODUCT_NOT_TO_CART.getText();
     }
 }
