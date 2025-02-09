@@ -1,17 +1,15 @@
 package com.task1.selenium;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.task1.selenium.config.ConfigLoader;
+import com.task1.selenium.config.DriverManager;
 import com.task1.selenium.pages.CartPage;
 import com.task1.selenium.pages.LoginPage;
 import com.task1.selenium.pages.MainPage;
 import com.task1.selenium.pages.ProductPage;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
-import com.task1.selenium.config.Config;
 import org.openqa.selenium.WebDriver;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Map;
 
 public class MainPageTest {
@@ -22,14 +20,12 @@ public class MainPageTest {
     private String password;
 
     @BeforeMethod
-    public void setUp() throws IOException {
+    public void setUp(){
         // Read config
-        ObjectMapper objectMapper = new ObjectMapper();
-        Config config = objectMapper.readValue(new File("src/test/resources/config/config.json"), Config.class);
-
-        baseUrl = config.getBaseUrl();
-        username = config.getUsername();
-        password = config.getPassword();
+        ConfigLoader config = ConfigLoader.getInstance();
+        baseUrl = config.get("page.baseUrl");
+        username = config.get("page.username");
+        password = config.get("page.password");
 
         driver = DriverManager.getDriver();
         wait = DriverManager.getWait();

@@ -1,7 +1,7 @@
 package com.task1.selenium.pages;
 
 import com.task1.selenium.BaseTest;
-import com.task1.selenium.Descriptions;
+import com.task1.selenium.config.Descriptions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;

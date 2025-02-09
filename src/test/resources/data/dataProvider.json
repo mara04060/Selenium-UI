@@ -1,2 +1,20 @@
-{"hilo", "Sauce Labs Bike Light"},
-{"za", "Test.allTheThings() T-Shirt (Red)"}
+{
+  "testCase": [
+    {
+      "code": "hilo",
+      "name": "Sauce Labs Bike Light"
+    },
+    {
+      "code": "za",
+      "name": "Test.allTheThings() T-Shirt (Red)"
+    },
+    {
+      "code": "hilo",
+      "name": "Sauce Labs Bike Light"
+    },
+    {
+      "code": "za",
+      "name": "Test.allTheThings() T-Shirt (Red)"
+    }
+  ]
+}
