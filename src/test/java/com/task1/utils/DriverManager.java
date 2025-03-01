@@ -1,4 +1,4 @@
-package com.task1.selenium.config;
+package com.task1.utils;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

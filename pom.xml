@@ -91,7 +91,7 @@
                     <systemProperties>
                         <property>
                             <name>allure.results.directory</name>
-                            <value>${project.build.directory}/allure-results</value>
+                            <value>${project.build.directory}target/site/allure-maven-plugin</value>
                         </property>
                     </systemProperties>
                 </configuration>

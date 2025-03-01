@@ -1,4 +1,6 @@
-package com.task1.selenium.config;
+package com.task1.utils;
+
+import com.task1.selenium.config.Descriptions;
 
 import java.io.FileInputStream;
 import java.io.IOException;

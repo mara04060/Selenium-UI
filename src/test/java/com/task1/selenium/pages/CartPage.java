@@ -1,5 +1,6 @@
 package com.task1.selenium.pages;
 
+import com.task1.models.Product;
 import com.task1.selenium.BaseTest;
 import com.task1.selenium.config.Descriptions;
 import org.openqa.selenium.By;
@@ -16,20 +17,14 @@ public class CartPage extends BaseTest {
        super();
     }
 
-    public void verifyCartItem(String expectedName, String expectedPrice) {
+    public Product verifyCartItem() {
         WebElement elementName = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(driver.findElement(cartItemLabel), cartItemName));
         WebElement filterElement = wait.until(ExpectedConditions.presenceOfNestedElementLocatedBy(driver.findElement(cartItemLabel), cartItemPrice));
-
-        String cartProductName = elementName.getText();
-        String cartProductPrice = filterElement.getText();
-
-        assert cartProductName.equals(expectedName) : Descriptions.CART_PRODUCT_NAME_TEXT.getText();
-        assert cartProductPrice.equals(expectedPrice) : Descriptions.CART_PRODUCT_PRICE_TEXT.getText();
+        return new Product( elementName.getText(), filterElement.getText() );
     }
 
-    public void verifyCartCounter(int expectedCount) {
+    public String verifyCartCounter() {
         WebElement cartCountElement = wait.until(ExpectedConditions.presenceOfElementLocated(cartCounter));
-        String cartCount = cartCountElement.getText();
-        assert cartCount.equals(String.valueOf(expectedCount)) : Descriptions.CART_PRODUCT_NOT_TO_CART.getText();
+        return cartCountElement.getText();
     }
 }

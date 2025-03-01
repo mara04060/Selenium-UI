@@ -1,6 +1,7 @@
 package com.task1.selenium.config;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.task1.utils.testCases;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class TestCasesWrapper {
         return testCases;
     }
 
-    public void setTestCases(List<com.task1.selenium.config.testCases> testCases) {
+    public void setTestCases(List<testCases> testCases) {
         this.testCases = testCases;
     }
 }

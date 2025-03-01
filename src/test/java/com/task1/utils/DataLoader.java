@@ -1,6 +1,7 @@
-package com.task1.selenium.config;
+package com.task1.utils;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.task1.selenium.config.Descriptions;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class DataLoader {
     {
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-            // Загружаем данные из JSON-файла
+            // Download data in JSON-file
             List products = objectMapper.readValue(new File(FILE_PATH), List.class);
         } catch (IOException e) {
             e.printStackTrace();

@@ -1,7 +1,7 @@
 package com.task1.selenium.pages;
 
+import com.task1.models.Product;
 import com.task1.selenium.BaseTest;
-import com.task1.selenium.config.Descriptions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,15 +16,10 @@ public class ProductPage extends BaseTest {
         super();
     }
 
-    public void verifyProductDetails(String expectedName, String expectedPrice) {
+    public Product verifyProductDetails() {
         WebElement elementName = wait.until(ExpectedConditions.visibilityOfElementLocated(productDetailName));
         WebElement elementPrice = wait.until(ExpectedConditions.visibilityOfElementLocated(productDetailPrice));
-
-        String productDetailNameText = elementName.getText();
-        String productDetailPriceText = elementPrice.getText();
-
-        assert productDetailNameText.equals(expectedName) : Descriptions.PRODUCT_NAME_TEXT.getText();
-        assert productDetailPriceText.equals(expectedPrice) : Descriptions.PRODUCT_PRICE_TEXT.getText();
+        return new Product(elementName.getText(), elementPrice.getText());
     }
 
     public void addToCart() {

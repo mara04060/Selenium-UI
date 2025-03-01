@@ -1,4 +1,4 @@
-package com.task1.selenium.config;
+package com.task1.utils;
 
 public class testCases {
     private String code;
